@@ -112,7 +112,10 @@ body {
 .h1-view {
     text-align: left;
     text-transform: uppercase;
-    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
 }
 
 .input-players {
@@ -132,7 +135,7 @@ body {
     text-transform: uppercase;
     border-radius: 8px;
     padding: 5px;
-    width: 25%;
+    width: 100%;
 }
 
 .view-name:last-child {
