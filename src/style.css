@@ -2,6 +2,7 @@ body {
     background-color: #333;
     color: #F4F4F4;
     font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
     margin: 0;
     padding: 0;
 }
@@ -32,6 +33,16 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.linkedin {
+    color: #FFF;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.linkedin:hover {
+    text-decoration: underline;
+}
+
 .add-players {
     background-color: #F4F4F4;
     border-radius: 30px;
@@ -58,7 +69,7 @@ body {
 #addPlayer {
     border-radius: 8px;
     padding: 5px;
-    font-size: 18px;
+    font-size: 20px;
     width: 75%;
     margin: 5px;
 }
@@ -71,7 +82,6 @@ body {
     color: #FFF;
     font-size: 24px;
     font-weight: bold;
-    position: relative;
     border-radius: 12px;
     transition: all 0.3s ease;
 }
@@ -80,4 +90,87 @@ body {
     transform: scale(1.05);
     background: black;
     color: #F4F4F4;
+}
+
+.view-players {
+    background: white;
+    color: #333;
+    border-radius: 30px;
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.form-players {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.h1-view {
+    text-transform: uppercase;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.view-name {
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 0 5px 5px 5px;
+    width: 99%;
+}
+
+.view-name:last-child {
+    margin: 0;
+}
+
+#button-matchPlayer {
+    background: #333;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 200px;
+    padding: 16px 32px;
+    margin: 10px auto 0;
+    color: #FFF;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#button-matchPlayer:hover { /* Mismo que button-addPlayer */
+    transform: scale(1.05);
+    background: black;
+    color: #F4F4F4;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.license {
+    color: #F4F4F4;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.license:hover {
+    text-decoration: underline;
 }
