@@ -5,16 +5,25 @@ if (!isset($_SESSION['players'])) {
     $_SESSION['players'] = [];
 }
 
+
 if (isset($_POST['addPlayer']) && !empty($_POST['addPlayer'])) {
     $playerName = trim($_POST['addPlayer']);
     $_SESSION['players'][] = $playerName;
 }
 
 if (isset($_POST['editPlayer']) && isset($_POST['playerIndex']) && !empty($_POST['editPlayer'])) {
-    $playerIndex = (int)$_POST['playerIndex'];
+    $playerIndex = (int) $_POST['playerIndex'];
     $newName = trim($_POST['editPlayer']);
     if (isset($_SESSION['players'][$playerIndex])) {
         $_SESSION['players'][$playerIndex] = $newName;
+    }
+}
+
+if (isset($_POST['deletePlayer']) && isset($_POST['playerIndex'])) {
+    $playerIndex = (int) $_POST['playerIndex'];
+    if (isset($_SESSION['players'][$playerIndex])) {
+        unset($_SESSION['players'][$playerIndex]);
+        $_SESSION['players'] = array_values($_SESSION['players']);
     }
 }
 
@@ -32,10 +41,12 @@ if (isset($_POST['resetPlayers'])) {
     <title>Torneo de Ajedrez</title>
     <link rel="stylesheet" href="style.css">
     <script>
+
         function showEditForm(index) {
             const form = document.getElementById('editForm-' + index);
             form.style.display = 'block';
         }
+
         function hideEditForm(index) {
             const form = document.getElementById('editForm-' + index);
             form.style.display = 'none';
@@ -87,6 +98,10 @@ if (isset($_POST['resetPlayers'])) {
                                 <input type="text" name="editPlayer" placeholder="Nuevo nombre" required>
                                 <button type="submit">Guardar</button>
                                 <button type="button" onclick="hideEditForm(<?= $index ?>)">Cancelar</button>
+                            </form>
+                            <form action="" method="POST" style="display: inline;">
+                                <input type="hidden" name="playerIndex" value="<?= $index ?>">
+                                <button type="submit" name="deletePlayer" onclick="return confirm('¿Estás seguro de que quieres eliminar a este jugador?')">Eliminar</button>
                             </form>
                         </li>
                     <?php endforeach; ?>
