@@ -1,10 +1,46 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['players'])) {
+    $_SESSION['players'] = [];
+}
+
+if (isset($_POST['addPlayer']) && !empty($_POST['addPlayer'])) {
+    $playerName = trim($_POST['addPlayer']);
+    $_SESSION['players'][] = $playerName;
+}
+
+if (isset($_POST['editPlayer']) && isset($_POST['playerIndex']) && !empty($_POST['editPlayer'])) {
+    $playerIndex = (int)$_POST['playerIndex'];
+    $newName = trim($_POST['editPlayer']);
+    if (isset($_SESSION['players'][$playerIndex])) {
+        $_SESSION['players'][$playerIndex] = $newName;
+    }
+}
+
+if (isset($_POST['resetPlayers'])) {
+    $_SESSION['players'] = [];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Organiza torneos de ajedrez de manera rápida y sencilla con nuestra aplicación web. Genera emparejamientos aleatorios, gestiona participantes y disfruta de un torneo equilibrado en cuestión de segundos. ¡Ideal para clubes y eventos casuales!">
     <title>Torneo de Ajedrez</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function showEditForm(index) {
+            const form = document.getElementById('editForm-' + index);
+            form.style.display = 'block';
+        }
+        function hideEditForm(index) {
+            const form = document.getElementById('editForm-' + index);
+            form.style.display = 'none';
+        }
+    </script>
 </head>
 <body>
 
@@ -22,32 +58,52 @@
         </header>
 
         <section class="add-players">
-            <form action="" method="POST" class="form" id="players-form">
+            <form action="" method="POST" class="formAddPlayers" id="players-form">
                 <label for="addPlayer" class="form-label">Jugadores:</label>
                 <input type="text" name="addPlayer" id="addPlayer"
                        placeholder="Introduce el nombre de un participante del torneo..."
                        maxlength="26"
                        required/>
-                <button type="submit" id="button-addPlayer">Añadir</button>
+                <button type="submit" id="button-addPlayer" name="add">
+                    Añadir
+                </button>
             </form>
         </section>
 
         <section class="view-players">
-            <form action="" method="post" class="form-players">
-                <h1 class="h1-view">Participantes</h1>
+            <h1 class="h1-view">Participantes</h1>
+            <hr class="view-separator">
+            <div class="input-players">
+                <?php if (!empty($_SESSION['players'])) : ?>
+                <ul>
+                    <?php foreach ($_SESSION['players'] as $index => $player): ?>
+                        <li class="view-player">
+                            <?= ($index + 1) . ". " . htmlspecialchars($player) ?>
 
-                <div class="input-players">
-                    <label for="1" class="label-view">1</label>
-                    <input type="text" name="1" class="view-name" id="1"
-                           value="Alejandro Téllez Corona" disabled/>
-                </div>
+                            <button onclick="showEditForm(<?= $index ?>)">Editar</button>
 
-                <div class="input-players">
-                    <label for="2" class="label-view">2</label>
-                    <input type="text" name="2" class="view-name" id="2"
-                           value="Daniel Ramos Estebán" disabled/>
-                </div>
-                <button type="submit" id="button-matchPlayer">Enfrentar</button>
+                            <form id="editForm-<?= $index ?>" action="" method="POST" style="display: none;">
+                                <input type="hidden" name="playerIndex" value="<?= $index ?>">
+                                <input type="text" name="editPlayer" placeholder="Nuevo nombre" required>
+                                <button type="submit">Guardar</button>
+                                <button type="button" onclick="hideEditForm(<?= $index ?>)">Cancelar</button>
+                            </form>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php else: ?>
+                    <p>No hay jugadores añadidos aún.</p>
+                <?php endif; ?>
+            </div>
+
+            <form action="" method="POST" class="form-players">
+                <button type="submit" name="resetPlayers" id="button-resetPlayers">
+                    Borrar
+                </button>
+
+                <button type="submit" name="matchPlayers" id="button-matchPlayers">
+                    Enfrentar
+                </button>
             </form>
         </section>
 
