@@ -13,7 +13,9 @@
         <header class="header">
             <h1 class="header-title">Torneo de Ajedrez</h1>
             <p class="header-author">Aplicación creada por
-                <a href="https://www.linkedin.com/in/alejandrotellezcorona/" class="linkedin" target="_blank">
+                <a href="https://www.linkedin.com/in/alejandrotellezcorona/"
+                   class="linkedin"
+                   target="_blank">
                     @alextc35
                 </a>
             </p>
@@ -22,7 +24,10 @@
         <section class="add-players">
             <form action="" method="POST" class="form" id="players-form">
                 <label for="addPlayer" class="form-label">Jugadores:</label>
-                <input type="text" name="addPlayer" id="addPlayer" placeholder="Introduce el nombre de un participante del torneo..."/>
+                <input type="text" name="addPlayer" id="addPlayer"
+                       placeholder="Introduce el nombre de un participante del torneo..."
+                       maxlength="26"
+                       required/>
                 <button type="submit" id="button-addPlayer">Añadir</button>
             </form>
         </section>
@@ -30,9 +35,16 @@
         <section class="view-players">
             <form action="" method="post" class="form-players">
                 <h1 class="h1-view">Participantes</h1>
-                <div class="players">
-                    <input type="text" class="view-name" value="Alejandro Téllez Corona" disabled/>
-                    <input type="text" class="view-name" value="Daniel Ramos Estebán" disabled/>
+                <div class="input-players">
+                    <label for="1" class="label-view">1</label>
+                    <input type="text" name="1" class="view-name" id="1"
+                           value="Alejandro Téllez Corona" disabled/>
+                </div>
+
+                <div class="input-players">
+                    <label for="2" class="label-view">2</label>
+                    <input type="text" name="2" class="view-name" id="2"
+                           value="Daniel Ramos Estebán" disabled/>
                 </div>
                 <button type="submit" id="button-matchPlayer">Enfrentar</button>
             </form>
