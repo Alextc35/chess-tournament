@@ -42,6 +42,11 @@ if (isset($_POST['resetPlayers'])) {
     <link rel="stylesheet" href="style.css">
     <script>
 
+        window.onload = function() {
+            const inputField = document.getElementById('addPlayer');
+            inputField.focus();
+        }
+
         function showEditForm(index) {
             const form = document.getElementById('editForm-' + index);
             form.style.display = 'block';
@@ -83,8 +88,16 @@ if (isset($_POST['resetPlayers'])) {
         </header>
 
         <section class="add-players">
-            <form action="" method="POST" class="formAddPlayers" id="players-form">
-                <label for="addPlayer" class="form-label">Jugadores:</label>
+            <form action=""
+                  method="POST"
+                  class="formAddPlayers"
+                  id="players-form">
+
+                <label for="addPlayer"
+                       class="form-label">
+                    Jugadores:
+                </label>
+
                 <input type="text" name="addPlayer" id="addPlayer"
                        placeholder="Introduce el nombre de un participante del torneo..."
                        maxlength="26"
@@ -105,7 +118,7 @@ if (isset($_POST['resetPlayers'])) {
                 <?php if (!empty($_SESSION['players'])) : ?>
                 <ul>
                     <?php foreach ($_SESSION['players'] as $index => $player): ?>
-                        <li class="view-player">
+                        <li class="list-player">
                             <?= ($index + 1) . ". " . htmlspecialchars($player) ?>
 
                             <button id="editButton-<?= $index ?>" onclick="showEditForm(<?= $index ?>)" class="edit-player">
@@ -143,9 +156,11 @@ if (isset($_POST['resetPlayers'])) {
 
             <form action="" method="POST" class="form-players">
                 <button type="submit" name="resetPlayers" id="button-resetPlayers">
-                    Borrar
+                    Limpiar
                 </button>
+            </form>
 
+            <form action="match.php" method="POST" class="form-players">
                 <button type="submit" name="matchPlayers" id="button-matchPlayers">
                     Enfrentar
                 </button>

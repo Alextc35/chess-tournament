@@ -123,7 +123,7 @@ body {
     justify-content: center;
 }
 
-.view-player {
+.list-player {
     list-style-type: none;
     padding-left: 0;
     margin: 10px;
@@ -217,4 +217,29 @@ body {
 
 .version:hover {
     font-weight: 700;
+}
+
+.match-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.match-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.match-item {
+    margin: 10px;
+}
+
+.back-link {
+    color: #F4F4F4;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    font-weight: 700;
+    text-decoration: underline;
 }
