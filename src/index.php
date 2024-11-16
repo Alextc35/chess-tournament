@@ -42,7 +42,9 @@
             <p>&copy; <?=date('Y')?> | 
                 <a href="https://github.com/Alextc35/chess-tournament/blob/main/LICENSE" class="license" target="_blank"> Licencia MIT</a>
             </p>
-            <p>v. 0.0.1</p>
+            <p>
+                <a href="https://github.com/Alextc35/chess-tournament" class="version" target="_blank">v. 0.0.1</a>
+            </p>
         </footer>
 
     </div>

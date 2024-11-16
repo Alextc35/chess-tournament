@@ -172,5 +172,15 @@ body {
 }
 
 .license:hover {
+    font-weight: 700;
     text-decoration: underline;
+}
+
+.version {
+    color: #F4F4F4;
+    text-decoration: none; 
+}
+
+.version:hover {
+    font-weight: 700;
 }
