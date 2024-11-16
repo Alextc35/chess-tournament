@@ -9,9 +9,9 @@
 <body>
 
     <div class="aplicacion">
-
         <header class="header">
             <h1 class="header-title">Torneo de Ajedrez</h1>
+
             <p class="header-author">Aplicación creada por
                 <a href="https://www.linkedin.com/in/alejandrotellezcorona/"
                    class="linkedin"
@@ -35,6 +35,7 @@
         <section class="view-players">
             <form action="" method="post" class="form-players">
                 <h1 class="h1-view">Participantes</h1>
+
                 <div class="input-players">
                     <label for="1" class="label-view">1</label>
                     <input type="text" name="1" class="view-name" id="1"
@@ -54,6 +55,7 @@
             <p>&copy; <?=date('Y')?> | 
                 <a href="https://github.com/Alextc35/chess-tournament/blob/main/LICENSE" class="license" target="_blank"> Licencia MIT</a>
             </p>
+
             <p>
                 <a href="https://github.com/Alextc35/chess-tournament" class="version" target="_blank">v. 0.0.1</a>
             </p>
