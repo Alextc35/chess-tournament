@@ -38,7 +38,7 @@ if (isset($_POST['resetPlayers'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Organiza torneos de ajedrez de manera rápida y sencilla con nuestra aplicación web. Genera emparejamientos aleatorios, gestiona participantes y disfruta de un torneo equilibrado en cuestión de segundos. ¡Ideal para clubes y eventos casuales!">
-    <title>Torneo de Ajedrez</title>
+    <title>Forjador de partidas</title>
     <link rel="stylesheet" href="style.css">
     <script>
 
@@ -69,9 +69,9 @@ if (isset($_POST['resetPlayers'])) {
 </head>
 <body>
 
-    <div class="aplicacion">
+    <div class="app">
         <header class="header">
-            <h1 class="header-title">Torneo de Ajedrez</h1>
+            <h1 class="header-title">Forjador de Partidas</h1>
 
             <p class="header-author">Aplicación creada por
                 <a href="https://www.linkedin.com/in/alejandrotellezcorona/"
@@ -89,6 +89,7 @@ if (isset($_POST['resetPlayers'])) {
                        placeholder="Introduce el nombre de un participante del torneo..."
                        maxlength="26"
                        required/>
+
                 <button type="submit" id="button-addPlayer" name="add">
                     Añadir
                 </button>
@@ -97,7 +98,9 @@ if (isset($_POST['resetPlayers'])) {
 
         <section class="view-players">
             <h1 class="h1-view">Participantes</h1>
+
             <hr class="view-separator">
+
             <div class="input-players">
                 <?php if (!empty($_SESSION['players'])) : ?>
                 <ul>
@@ -105,22 +108,34 @@ if (isset($_POST['resetPlayers'])) {
                         <li class="view-player">
                             <?= ($index + 1) . ". " . htmlspecialchars($player) ?>
 
-                            <button id="editButton-<?= $index ?>" onclick="showEditForm(<?= $index ?>)" class="edit-player"><img src="./img/editar.png"></button>
+                            <button id="editButton-<?= $index ?>" onclick="showEditForm(<?= $index ?>)" class="edit-player">
+                                <img src="./img/editar.png">
+                            </button>
 
                             <form id="editForm-<?= $index ?>" action="" method="POST" style="display: none;" class="edit-player">
                                 <input type="hidden" name="playerIndex" value="<?= $index ?>">
                                 <input type="text" name="editPlayer" placeholder="Nuevo nombre" required>
-                                <button type="submit">Guardar</button>
-                                <button type="button" onclick="hideEditForm(<?= $index ?>)">Cancelar</button>
+
+                                <button type="submit">
+                                    Guardar
+                                </button>
+
+                                <button type="button" onclick="hideEditForm(<?= $index ?>)">
+                                    Cancelar
+                                </button>
                             </form>
 
                             <form action="" method="POST" style="display: inline;">
                                 <input type="hidden" name="playerIndex" value="<?= $index ?>">
-                                <button id="deleteButton-<?= $index ?>" type="submit" name="deletePlayer" class="delete-player" onclick="return confirm('¿Estás seguro de que quieres eliminar a este jugador?')"><img src="./img/eliminar.png"></button>
+                                <button id="deleteButton-<?= $index ?>" type="submit" name="deletePlayer" class="delete-player"
+                                        onclick="return confirm('¿Estás seguro de que quieres eliminar a este jugador?')">
+                                    <img src="./img/eliminar.png">
+                                </button>
                             </form>
                         </li>
                     <?php endforeach; ?>
                 </ul>
+
                 <?php else: ?>
                     <p>No hay jugadores añadidos aún.</p>
                 <?php endif; ?>
@@ -139,11 +154,15 @@ if (isset($_POST['resetPlayers'])) {
 
         <footer class="footer">
             <p>&copy; <?=date('Y')?> | 
-                <a href="https://github.com/Alextc35/chess-tournament/blob/main/LICENSE" class="license" target="_blank"> Licencia MIT</a>
+                <a href="https://github.com/Alextc35/chess-tournament/blob/main/LICENSE" class="license" target="_blank">
+                    Licencia MIT
+                </a>
             </p>
 
             <p>
-                <a href="https://github.com/Alextc35/chess-tournament" class="version" target="_blank">v. 0.0.1</a>
+                <a href="https://github.com/Alextc35/chess-tournament" class="version" target="_blank">
+                    v. 0.1.0
+                </a>
             </p>
         </footer>
 
