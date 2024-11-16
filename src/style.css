@@ -129,6 +129,16 @@ body {
     margin: 5px;
 }
 
+.edit-player img {
+    width: 25px;
+    height: 25px;
+}
+
+.delete-player img {
+    width: 25px;
+    height: 25px;
+}
+
 .form-players {
     display: flex;
     text-align: center;

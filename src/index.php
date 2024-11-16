@@ -45,11 +45,25 @@ if (isset($_POST['resetPlayers'])) {
         function showEditForm(index) {
             const form = document.getElementById('editForm-' + index);
             form.style.display = 'block';
+
+            const editButton = document.getElementById('editButton-' + index);
+            const deleteButton = document.getElementById('deleteButton-' + index);
+            if (editButton && deleteButton) {
+                editButton.style.display = 'none';
+                deleteButton.style.display = 'none';
+            }
         }
 
         function hideEditForm(index) {
             const form = document.getElementById('editForm-' + index);
             form.style.display = 'none';
+
+            const editButton = document.getElementById('editButton-' + index);
+            const deleteButton = document.getElementById('deleteButton-' + index);
+            if (editButton && deleteButton) {
+                editButton.style.display = 'inline';
+                deleteButton.style.display = 'inline';
+            }
         }
     </script>
 </head>
@@ -91,17 +105,18 @@ if (isset($_POST['resetPlayers'])) {
                         <li class="view-player">
                             <?= ($index + 1) . ". " . htmlspecialchars($player) ?>
 
-                            <button onclick="showEditForm(<?= $index ?>)">Editar</button>
+                            <button id="editButton-<?= $index ?>" onclick="showEditForm(<?= $index ?>)" class="edit-player"><img src="./img/editar.png"></button>
 
-                            <form id="editForm-<?= $index ?>" action="" method="POST" style="display: none;">
+                            <form id="editForm-<?= $index ?>" action="" method="POST" style="display: none;" class="edit-player">
                                 <input type="hidden" name="playerIndex" value="<?= $index ?>">
                                 <input type="text" name="editPlayer" placeholder="Nuevo nombre" required>
                                 <button type="submit">Guardar</button>
                                 <button type="button" onclick="hideEditForm(<?= $index ?>)">Cancelar</button>
                             </form>
+
                             <form action="" method="POST" style="display: inline;">
                                 <input type="hidden" name="playerIndex" value="<?= $index ?>">
-                                <button type="submit" name="deletePlayer" onclick="return confirm('¿Estás seguro de que quieres eliminar a este jugador?')">Eliminar</button>
+                                <button id="deleteButton-<?= $index ?>" type="submit" name="deletePlayer" class="delete-player" onclick="return confirm('¿Estás seguro de que quieres eliminar a este jugador?')"><img src="./img/eliminar.png"></button>
                             </form>
                         </li>
                     <?php endforeach; ?>
