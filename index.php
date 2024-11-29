@@ -40,35 +40,12 @@ if (isset($_POST['resetPlayers'])) {
     <meta name="description" content="Organiza torneos de ajedrez de manera rápida y sencilla con nuestra aplicación web. Genera emparejamientos aleatorios, gestiona participantes y disfruta de un torneo equilibrado en cuestión de segundos. ¡Ideal para clubes y eventos casuales!">
     <title>Forjador de partidas</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js">// Scripts de la aplicación</script>
     <script>
-
+        // Mantiene el focus en el campo del formulario principal
         window.onload = function() {
             const inputField = document.getElementById('addPlayer');
             inputField.focus();
-        }
-
-        function showEditForm(index) {
-            const form = document.getElementById('editForm-' + index);
-            form.style.display = 'block';
-
-            const editButton = document.getElementById('editButton-' + index);
-            const deleteButton = document.getElementById('deleteButton-' + index);
-            if (editButton && deleteButton) {
-                editButton.style.display = 'none';
-                deleteButton.style.display = 'none';
-            }
-        }
-
-        function hideEditForm(index) {
-            const form = document.getElementById('editForm-' + index);
-            form.style.display = 'none';
-
-            const editButton = document.getElementById('editButton-' + index);
-            const deleteButton = document.getElementById('deleteButton-' + index);
-            if (editButton && deleteButton) {
-                editButton.style.display = 'inline';
-                deleteButton.style.display = 'inline';
-            }
         }
     </script>
 </head>
@@ -127,7 +104,7 @@ if (isset($_POST['resetPlayers'])) {
 
                             <form id="editForm-<?= $index ?>" action="" method="POST" style="display: none;" class="edit-player">
                                 <input type="hidden" name="playerIndex" value="<?= $index ?>">
-                                <input type="text" name="editPlayer" placeholder="Nuevo nombre" required>
+                                <input type="text" name="editPlayer" value="<?php echo htmlspecialchars($player) ?>" placeholder="Nuevo nombre" required>
 
                                 <button type="submit">
                                     Guardar
