@@ -106,7 +106,7 @@ include 'players.php'
 
     <footer class="footer">
         <p>&copy; <?=date('Y')?> |
-            <a href="https://github.com/Alextc35/chess-tournament/blob/main/LICENSE"
+            <a href="https://github.com/Alextc35/match-forge/blob/main/LICENSE"
                class="license"
                target="_blank">
                 Licencia MIT
@@ -114,7 +114,7 @@ include 'players.php'
         </p>
 
         <p>
-            <a href="https://github.com/Alextc35/chess-tournament"
+            <a href="https://github.com/Alextc35/match-forge"
                class="version"
                target="_blank">
                 v. 0.3.0
