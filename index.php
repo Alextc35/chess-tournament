@@ -1,6 +1,6 @@
 <?php
 include 'players.php';
-$version = "0.6.0";
+$version = "0.6.1";
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ $version = "0.6.0";
         <section class="add-players">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <label for="addPlayer" class="center-content"> Jugadores:</label>
-                <input type="text" name="addPlayer" id="addPlayer" placeholder="Introduce un nombre..." maxlength="26" required/>
+                <input type="text" name="addPlayer" id="addPlayer" onfocus="this.select();" placeholder="Introduce un nombre..." maxlength="26" required/>
                 <button type="submit" name="add" class="submit-button add-button">Añadir</button>
             </form>
         </section>

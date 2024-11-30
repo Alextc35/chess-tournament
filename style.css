@@ -150,9 +150,6 @@ body {
 }
 
 .list-player button {
-    background: none;
-    border: none;
-    cursor: pointer;
     margin-left: 5px;
 }
 
@@ -268,6 +265,26 @@ body {
     .list-player .list-player-img {
         width: 15px;
         height: 15px;
+    }
+
+    .edit-player-form label {
+        padding: 5px;
+    }
+
+    .edit-player-form input {
+        margin: 5px;
+    }
+
+    .edit-list-player .edit-list-player {
+        margin: 0;
+    }
+
+    .edit-player-form .edit-list-player {
+        margin: 0;
+    }
+
+    .edit-list-player .edit-list-button {
+        margin: 5px;
     }
 
     .button-container {
