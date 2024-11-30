@@ -177,33 +177,44 @@ body {
     transform: scale(1.05); /* check */
 }
 
+.reset-button {
+    background-color: red; /* check */
+}
+
+.reset-button:hover {
+    background-color: darkred; /* check */
+}
+
+.match-button {
+    background-color: green; /* check */
+}
+
+.match-button:hover {
+    background-color: darkgreen; /* check */
+}
+
 /* Pie de página */
-.footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+.footer-license {
+    color: #F4F4F4; /* check */
+    text-decoration: none; /* check */
+    text-transform: uppercase; /* check */
 }
 
-.license {
-    color: #F4F4F4;
-    text-decoration: none;
-    text-transform: uppercase;
+.footer-license:hover {
+    font-weight: 700; /* check */
+    text-decoration: underline; /* check */
 }
 
-.license:hover {
-    font-weight: 700;
-    text-decoration: underline;
+.footer-version {
+    color: #F4F4F4; /* check */
+    text-decoration: none;  /* check */
 }
 
-.version {
-    color: #F4F4F4;
-    text-decoration: none; 
+.footer-version:hover {
+    font-weight: 700; /* check */
 }
 
-.version:hover {
-    font-weight: 700;
-}
+/* --------------------------------------- */
 
 .match-section {
     display: flex;
@@ -231,12 +242,9 @@ body {
 }
 
 /* --- Media Queries --- */
-
-/* Para pantallas pequeñas (móviles) */
-@media (max-width: 850px) {
+@media (max-width: 725px) {
     .main-header .header-title {
         font-size: 24px;
-
     }
 
     .app .add-players {

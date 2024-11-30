@@ -1,5 +1,6 @@
 <?php
-include 'players.php'
+include 'players.php';
+$version = "0.5.1";
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@ include 'players.php'
         <section class="view-players column-content">
             <h1 class="center-content">Participantes</h1>
             <hr>
-            <div class="center-content">
+            <section class="center-content">
                 <?php if (!empty($_SESSION['players'])) : ?>
                     <ul class="no-margin-no-padding">
                         <?php foreach ($_SESSION['players'] as $index => $player): ?>
@@ -56,24 +57,23 @@ include 'players.php'
                 <?php else: ?>
                     <p>No hay jugadores añadidos aún.</p>
                 <?php endif; ?>
-            </div>
+            </section>
 
             <section class="button-container">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                    <button type="submit" name="resetPlayers" class="submit-button">Limpiar</button>
+                    <button type="submit" name="resetPlayers" class="submit-button reset-button">Limpiar</button>
                 </form>
 
                 <form action="match.php" method="POST">
-                    <button type="submit" name="matchPlayers" class="submit-button">Enfrentar</button>
+                    <button type="submit" name="matchPlayers" class="submit-button match-button">Enfrentar</button>
                 </form>
             </section>
         </section>
     </main>
 
-    <footer class="footer">
-        <p>&copy; <?=date('Y')?> |<a href="https://github.com/Alextc35/match-forge/blob/main/LICENSE" class="license" target="_blank">Licencia MIT</a></p>
-
-        <p><a href="https://github.com/Alextc35/match-forge" class="version" target="_blank">v. 0.5.0</a></p>
+    <footer class="column-content">
+        <p>&copy; <?=date('Y')?> |<a href="https://github.com/Alextc35/match-forge/blob/main/LICENSE" class="footer-license" target="_blank">Licencia MIT</a></p>
+        <p><a href="https://github.com/Alextc35/match-forge" class="footer-version" target="_blank">v. <?= $version ?></a></p>
     </footer>
 </body>
 </html>
