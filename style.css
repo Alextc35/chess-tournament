@@ -227,9 +227,6 @@ body {
     font-weight: 700;
 }
 
-/* --------------------------------------- */
-
-/* --- Media Queries --- */
 @media (max-width: 725px) {
     /* Cabecera */
     .main-header .header-title {

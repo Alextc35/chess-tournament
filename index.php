@@ -1,6 +1,6 @@
 <?php
 include 'players.php';
-$version = "0.6.1";
+$version = "0.6.2";
 ?>
 
 <!DOCTYPE html>
