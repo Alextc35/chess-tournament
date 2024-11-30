@@ -102,7 +102,7 @@ body {
     border-radius: 8px;
     padding: 5px;
     font-size: 20px;
-    width: 75%;
+    width: 100%;
     margin: 5px;
 }
 
@@ -210,4 +210,55 @@ body {
 .back-link:hover {
     font-weight: 700;
     text-decoration: underline;
+}
+
+/* --- Media Queries --- */
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 850px) {
+    .header-title {
+        font-size: 24px;
+    }
+
+    .add-players {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .formAddPlayers {
+        flex-direction: column;
+        width: auto;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    #addPlayer {
+        width: 100%;
+        margin: 10px;
+    }
+
+    .submit-button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .view-players {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #clear-app {
+        font-size: 14px;
+    }
+
+    .list-player {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

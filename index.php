@@ -84,7 +84,7 @@ include 'players.php'
                 </ul>
 
                 <?php else: ?>
-                    <p>No hay jugadores añadidos aún.</p>
+                    <p id="clear-app">No hay jugadores añadidos aún.</p>
                 <?php endif; ?>
             </div>
 
@@ -117,7 +117,7 @@ include 'players.php'
             <a href="https://github.com/Alextc35/chess-tournament"
                class="version"
                target="_blank">
-                v. 0.1.0
+                v. 0.3.0
             </a>
         </p>
     </footer>
