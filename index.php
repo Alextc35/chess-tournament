@@ -1,18 +1,18 @@
 <?php
 include 'players.php';
-$version = "0.5.1";
+$version = "0.6.0";
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descubre nuestra aplicación web para generar emparejamientos de manera rápida y sencilla. Ideal para torneos, sorteos, actividades grupales y más. ¡Organiza y conecta a las personas fácilmente!">
     <title>Forjador de partidas</title>
     <link rel="icon" href="favicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <meta name="description" content="Descubre nuestra aplicación web para generar emparejamientos de manera rápida y sencilla. Ideal para torneos, sorteos, actividades grupales y más. ¡Organiza y conecta a las personas fácilmente!">
 </head>
 <body class="no-margin-no-padding">
     <header class="main-header">
@@ -36,7 +36,8 @@ $version = "0.5.1";
                 <?php if (!empty($_SESSION['players'])) : ?>
                     <ul class="no-margin-no-padding">
                         <?php foreach ($_SESSION['players'] as $index => $player): ?>
-                            <li class="list-player"><?= ($index + 1) . ". " . htmlspecialchars($player) ?>
+                            <li class="list-player center-content">
+                                <span><?= ($index + 1) . ". " . htmlspecialchars($player) ?></span>
                                 <button id="editButton-<?= $index ?>" class="edit-player" onclick="showEditForm(<?= $index ?>)"><img src="./img/editar.webp" class="list-player-img" alt="Editar"></button>
                                 <form id="editForm-<?= $index ?>" class="edit-player-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" style="display: none;">
                                     <input type="hidden" name="playerIndex" value="<?= $index ?>"> <!-- Input auxiliar -->
@@ -53,6 +54,7 @@ $version = "0.5.1";
                                     <button id="deleteButton-<?= $index ?>" type="submit" name="deletePlayer" class="delete-player" onclick="return confirm('¿Estás seguro de que quieres eliminar a \'<?php echo htmlspecialchars($player) ?>\'?')"><img src="./img/eliminar.webp" class="list-player-img" alt="Eliminar"></button>
                                 </form>
                             </li>
+                            <hr class="separator">
                         <?php endforeach; ?>
                     </ul>
                 <?php else: ?>

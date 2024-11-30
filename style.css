@@ -141,12 +141,28 @@ body {
 
 .view-players .list-player {
     list-style-type: none;
-    margin: 10px;
+    font-size: 18px;
+}
+
+.list-player span {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.list-player button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
 }
 
 .list-player .list-player-img {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
+}
+
+.view-players ul hr {
+    border: 1px solid #ccc;
 }
 
 .list-player .edit-player-form {
@@ -218,50 +234,50 @@ body {
 
 /* --- Media Queries --- */
 @media (max-width: 725px) {
+    /* Cabecera */
     .main-header .header-title {
         font-size: 24px;
     }
 
-    .app .add-players {
-        width: 100%;
-        padding: 15px;
+    .main-header p {
+        font-size: 16px;
     }
 
+    /* App */
     .app .add-players form {
         flex-direction: column;
-        width: auto;
-        align-items: center;
-        margin: 0 auto;
     }
 
-    #addPlayer {
-        width: 100%;
+    .add-players #addPlayer {
+        width: auto;
         margin: 10px;
     }
 
-    .submit-button {
+    .add-players .submit-button {
         font-size: 18px;
-        padding: 10px 20px;
     }
 
-    .view-players {
-        width: 100%;
-        padding: 10px;
-    }
-
-    #no-players {
+    .view-players section p {
         font-size: 14px;
     }
 
-    .list-player {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+    .view-players .list-player {
+        font-size: 14px;
+    }
+
+    .list-player .list-player-img {
+        width: 15px;
+        height: 15px;
     }
 
     .button-container {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
+    }
+
+    /* Pie de página */
+    footer p {
+        font-size: 16px;
     }
 }
 
