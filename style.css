@@ -10,11 +10,22 @@ body {
 /* Contenedor principal */
 .app {
     width: 75%; /* check */
+    margin: 20px auto; /* check */
+    gap: 20px; /* check */
+}
+
+/* Centrar contenido */
+.center-content {
+    display: flex; /* check */
+    justify-content: center; /* check */
+    align-items: center; /* check */
+}
+
+/* Columna centrada */
+.column-content {
     display: flex; /* check */
     flex-direction: column; /* check */
     align-items: center; /* check */
-    margin: 20px auto; /* check */
-    gap: 20px; /* check */
 }
 
 /* Botones de la página */
@@ -31,7 +42,7 @@ body {
     background: #333; /* check */
     cursor: pointer; /* check */
     border: none; /* check */
-    padding: 16px 32px; /* check */
+    padding: 8px 24px; /* check */
     color: #FFF; /* check */
     font-size: 24px; /* check */
     font-weight: bold; /* check */
@@ -50,10 +61,10 @@ body {
     display: flex; /* check */
     flex-direction: column; /* check */
     align-items: center; /* check */
-    margin: 20px;
+    margin: 20px; /* check */
 }
 
-.header-title {
+.main-header .header-title {
     font-size: 36px; /* check */
     font-weight: 700; /* check */
     text-transform: uppercase; /* check */
@@ -61,80 +72,63 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* check */
 }
 
-.header-author {
-
+.main-header .link-linkedin {
+    color: #FFF; /* check */
+    font-weight: 700; /* check */
+    text-decoration: none; /* check */
 }
 
-.linkedin {
-    color: #FFF;
-    font-weight: 700;
-    text-decoration: none;
+.main-header .link-linkedin:hover {
+    text-decoration: underline; /* check */
 }
 
-.linkedin:hover {
-    text-decoration: underline;
+/* App */
+.app .add-players {
+    background-color: #F4F4F4; /* check */
+    border-radius: 30px; /* check */
+    color: #333; /* check */
+    font-family: 'Times New Roman', Times, serif; /* check */
+    font-size: 24px; /* check */
+    padding: 25px; /* check */
 }
 
-.add-players {
-    background-color: #F4F4F4;
-    border-radius: 30px;
-    color: #333;
-    display: flex;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 24px;
-    padding: 25px;
-    width: 75%;
+.app .add-players form {
+    display: flex; /* check */
 }
 
-.formAddPlayers {
-    display: flex;
-    width: 100%;
-    justify-content:space-evenly;
+.app .add-players #addPlayer {
+    border-radius: 12px; /* check */
+    padding: 5px; /* check */
+    font-size: 20px; /* check */
+    width: 100%; /* check */
+    margin: 10px; /* check */
 }
 
-.form-label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.app .add-players .add-button {
+    background-color: blue; /* check */
+    height: 75%; /* check */
+    margin: auto; /* check */
 }
 
-#addPlayer {
-    border-radius: 8px;
-    padding: 5px;
-    font-size: 20px;
-    width: 100%;
-    margin: 5px;
+.app .add-players .add-button:hover {
+    background-color: darkblue; /* check */
 }
 
-.view-players {
-    background: white;
-    color: #333;
-    border-radius: 30px;
-    width: 80%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+.app .view-players {
+    background: white; /* check */
+    color: #333; /* check */
+    border-radius: 30px; /* check */
+    padding: 25px; /* check */
 }
 
-.h1-view {
-    text-align: left;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
+.app .view-players h1 {
+    text-transform: uppercase; /* check */
+    margin: 0; /* check */
 }
 
-.view-separator {
-    border: 1px solid black;
-    width: 100%;
-}
-
-.input-players {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.app .view-players hr {
+    border: 1px solid black; /* check */
+    width: 100%; /* check */
 }
 
 .list-player {
@@ -216,16 +210,17 @@ body {
 
 /* Para pantallas pequeñas (móviles) */
 @media (max-width: 850px) {
-    .header-title {
+    .main-header .header-title {
         font-size: 24px;
+
     }
 
-    .add-players {
+    .app .add-players {
         width: 100%;
         padding: 15px;
     }
 
-    .formAddPlayers {
+    .app .add-players form {
         flex-direction: column;
         width: auto;
         align-items: center;

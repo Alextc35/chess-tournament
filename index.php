@@ -15,42 +15,22 @@ include 'players.php'
 <body>
     <header class="main-header">
         <h1 class="header-title">Forjador de Partidas</h1>
-        <p class="header-author">Aplicación creada por
-            <a href="https://www.linkedin.com/in/alejandrotellezcorona/"
-               class="linkedin"
-               target="_blank"> @alextc35
-            </a>
-        </p>
+        <p>Aplicación creada por <a href="https://www.linkedin.com/in/alejandrotellezcorona/"  class="link-linkedin"  target="_blank">@alextc35</a></p>
     </header>
 
-    <main class="app">
+    <main class="app column-content">
         <section class="add-players">
-            <form action=""
-                  method="POST"
-                  class="formAddPlayers"
-                  id="players-form">
-
-                <label for="addPlayer"
-                       class="form-label"> Jugadores:
-                </label>
-
-                <input type="text" name="addPlayer" id="addPlayer"
-                       placeholder="Introduce un nombre..."
-                       maxlength="26"
-                       required/>
-
-                <button type="submit" name="add" class="submit-button">
-                    Añadir
-                </button>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                <label for="addPlayer" class="center-content"> Jugadores:</label>
+                <input type="text" name="addPlayer" id="addPlayer" placeholder="Introduce un nombre..." maxlength="26" required/>
+                <button type="submit" name="add" class="submit-button add-button">Añadir</button>
             </form>
         </section>
 
-        <section class="view-players">
-            <h1 class="h1-view">Participantes</h1>
-
-            <hr class="view-separator">
-
-            <div class="input-players"><?php if (!empty($_SESSION['players'])) : ?>
+        <section class="view-players column-content">
+            <h1 class="center-content">Participantes</h1>
+            <hr>
+            <div class="center-content"><?php if (!empty($_SESSION['players'])) : ?>
                 <ul>
                     <?php foreach ($_SESSION['players'] as $index => $player): ?>
                         <li class="list-player"><?= ($index + 1) . ". " . htmlspecialchars($player) ?>
@@ -117,7 +97,7 @@ include 'players.php'
             <a href="https://github.com/Alextc35/match-forge"
                class="version"
                target="_blank">
-                v. 0.3.0
+                v. 0.4.0
             </a>
         </p>
     </footer>
