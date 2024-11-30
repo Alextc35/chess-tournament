@@ -47,3 +47,14 @@ function hideEditForm(index) {
         deleteButton.style.display = 'inline';
     }
 }
+/**
+ * Adjunta un evento de enfoque (focus) a un campo de entrada específico identificado por su índice.
+ * Cuando el campo de entrada obtiene el foco, su contenido se seleccionará automáticamente.
+ *
+ * @param {number} index - El índice del jugador, utilizado para identificar el campo de entrada correspondiente.
+ */
+function attachFocusSelectToInput(index) {
+    document.getElementById('editPlayer-' + index).addEventListener('focus', function() {
+        this.select();
+    });
+}

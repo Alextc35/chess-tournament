@@ -3,8 +3,6 @@ body {
     color: #F4F4F4; /* check */
     font-family: 'Courier New', Courier, monospace; /* check */
     font-size: 18px; /* check */
-    margin: 0; /* check */
-    padding: 0; /* check */
 }
 
 /* Contenedor principal */
@@ -12,6 +10,12 @@ body {
     width: 75%; /* check */
     margin: 20px auto; /* check */
     gap: 20px; /* check */
+}
+
+/* No margin, no padding */
+.no-margin-no-padding {
+    margin: 0;
+    padding: 0;
 }
 
 /* Centrar contenido */
@@ -78,13 +82,14 @@ body {
     text-decoration: none; /* check */
 }
 
-.main-header .link-linkedin:hover {
+.link-linkedin:hover {
     text-decoration: underline; /* check */
 }
 
 /* App */
 .app .add-players {
     background-color: #F4F4F4; /* check */
+    border: 3px solid black;
     border-radius: 30px; /* check */
     color: #333; /* check */
     font-family: 'Times New Roman', Times, serif; /* check */
@@ -92,68 +97,87 @@ body {
     padding: 25px; /* check */
 }
 
-.app .add-players form {
+.add-players form {
     display: flex; /* check */
 }
 
-.app .add-players #addPlayer {
+.add-players #addPlayer {
     border-radius: 12px; /* check */
-    padding: 5px; /* check */
+    padding: 5px 10px; /* check */
     font-size: 20px; /* check */
     width: 100%; /* check */
     margin: 10px; /* check */
 }
 
-.app .add-players .add-button {
+.add-players .add-button {
     background-color: blue; /* check */
     height: 75%; /* check */
     margin: auto; /* check */
 }
 
-.app .add-players .add-button:hover {
+.add-button:hover {
     background-color: darkblue; /* check */
 }
 
 .app .view-players {
     background: white; /* check */
+    font-size: 16px; /* check */
     color: #333; /* check */
+    border: 3px solid black;
     border-radius: 30px; /* check */
     padding: 25px; /* check */
 }
 
-.app .view-players h1 {
+.view-players h1 {
+    font-size: 36px; /* check */
     text-transform: uppercase; /* check */
     margin: 0; /* check */
 }
 
-.app .view-players hr {
+.view-players hr {
     border: 1px solid black; /* check */
     width: 100%; /* check */
 }
 
-.list-player {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 10px;
+.view-players .list-player {
+    list-style-type: none; /* check */
+    margin: 10px; /* check */
 }
 
-.edit-player img {
-    width: 25px;
-    height: 25px;
+.list-player .list-player-img {
+    width: 15px; /* check */
+    height: 15px; /* check */
 }
 
-.delete-player img {
-    width: 25px;
-    height: 25px;
+.list-player .edit-player-form {
+    margin: 5px; /* check */
 }
 
-.form-players {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
+.edit-player-form label {
+    color: black; /* check */
+    font-weight: bold; /* check */
 }
 
+.edit-player-form input {
+    border-color: orange; /* check */
+    border-radius: 12px; /* check */
+    padding: 5px 10px; /* check */
+    margin: auto; /* check */
+}
+
+.edit-player-form .edit-list-player {
+    margin: 10px; /* check */
+}
+
+.edit-list-player .edit-list-button {
+    font-size: 12px; /* check */
+}
+
+.edit-list-player button:hover {
+    transform: scale(1.05); /* check */
+}
+
+/* Pie de página */
 .footer {
     display: flex;
     flex-direction: column;
@@ -242,7 +266,7 @@ body {
         padding: 10px;
     }
 
-    #clear-app {
+    #no-players {
         font-size: 14px;
     }
 
