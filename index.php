@@ -13,113 +13,113 @@ include 'players.php'
     <script src="script.js"></script>
 </head>
 <body>
+    <header class="main-header">
+        <h1 class="header-title">Forjador de Partidas</h1>
+        <p class="header-author">Aplicación creada por
+            <a href="https://www.linkedin.com/in/alejandrotellezcorona/"
+               class="linkedin"
+               target="_blank"> @alextc35
+            </a>
+        </p>
+    </header>
 
-        <header class="header">
-            <h1 class="header-title">Forjador de Partidas</h1>
+    <main class="app">
+        <section class="add-players">
+            <form action=""
+                  method="POST"
+                  class="formAddPlayers"
+                  id="players-form">
 
-            <p class="header-author">Aplicación creada por
-                <a href="https://www.linkedin.com/in/alejandrotellezcorona/"
-                   class="linkedin"
-                   target="_blank">
-                    @alextc35
-                </a>
-            </p>
-        </header>
+                <label for="addPlayer"
+                       class="form-label"> Jugadores:
+                </label>
 
-        <main class="app">
-            <section class="add-players">
-                <form action=""
-                    method="POST"
-                    class="formAddPlayers"
-                    id="players-form">
+                <input type="text" name="addPlayer" id="addPlayer"
+                       placeholder="Introduce un nombre..."
+                       maxlength="26"
+                       required/>
 
-                    <label for="addPlayer"
-                        class="form-label">
-                        Jugadores:
-                    </label>
+                <button type="submit" name="add" class="submit-button">
+                    Añadir
+                </button>
+            </form>
+        </section>
 
-                    <input type="text" name="addPlayer" id="addPlayer"
-                        placeholder="Introduce el nombre de un participante del torneo..."
-                        maxlength="26"
-                        required/>
+        <section class="view-players">
+            <h1 class="h1-view">Participantes</h1>
 
-                    <button type="submit" id="button-addPlayer" name="add">
-                        Añadir
-                    </button>
-                </form>
-            </section>
+            <hr class="view-separator">
 
-            <section class="view-players">
-                <h1 class="h1-view">Participantes</h1>
+            <div class="input-players"><?php if (!empty($_SESSION['players'])) : ?>
+                <ul>
+                    <?php foreach ($_SESSION['players'] as $index => $player): ?>
+                        <li class="list-player"><?= ($index + 1) . ". " . htmlspecialchars($player) ?>
 
-                <hr class="view-separator">
+                            <button id="editButton-<?= $index ?>" onclick="showEditForm(<?= $index ?>)" class="edit-player">
+                                <img src="./img/editar.png">
+                            </button>
 
-                <div class="input-players">
-                    <?php if (!empty($_SESSION['players'])) : ?>
-                    <ul>
-                        <?php foreach ($_SESSION['players'] as $index => $player): ?>
-                            <li class="list-player">
-                                <?= ($index + 1) . ". " . htmlspecialchars($player) ?>
+                            <form id="editForm-<?= $index ?>" action="" method="POST" style="display: none;" class="edit-player">
+                                <input type="hidden" name="playerIndex" value="<?= $index ?>">
+                                <input type="text" name="editPlayer" value="<?php echo htmlspecialchars($player) ?>" placeholder="Nuevo nombre" required>
 
-                                <button id="editButton-<?= $index ?>" onclick="showEditForm(<?= $index ?>)" class="edit-player">
-                                    <img src="./img/editar.png">
+                                <button type="submit">
+                                    Guardar
                                 </button>
 
-                                <form id="editForm-<?= $index ?>" action="" method="POST" style="display: none;" class="edit-player">
-                                    <input type="hidden" name="playerIndex" value="<?= $index ?>">
-                                    <input type="text" name="editPlayer" value="<?php echo htmlspecialchars($player) ?>" placeholder="Nuevo nombre" required>
+                                <button type="button" onclick="hideEditForm(<?= $index ?>)">
+                                    Cancelar
+                                </button>
+                            </form>
 
-                                    <button type="submit">
-                                        Guardar
-                                    </button>
+                            <form action="" method="POST" style="display: inline;">
+                                <input type="hidden" name="playerIndex" value="<?= $index ?>">
+                                <button id="deleteButton-<?= $index ?>" type="submit" name="deletePlayer" class="delete-player"
+                                        onclick="return confirm('¿Estás seguro de que quieres eliminar a este jugador?')">
+                                    <img src="./img/eliminar.png">
+                                </button>
+                            </form>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
 
-                                    <button type="button" onclick="hideEditForm(<?= $index ?>)">
-                                        Cancelar
-                                    </button>
-                                </form>
+                <?php else: ?>
+                    <p>No hay jugadores añadidos aún.</p>
+                <?php endif; ?>
+            </div>
 
-                                <form action="" method="POST" style="display: inline;">
-                                    <input type="hidden" name="playerIndex" value="<?= $index ?>">
-                                    <button id="deleteButton-<?= $index ?>" type="submit" name="deletePlayer" class="delete-player"
-                                            onclick="return confirm('¿Estás seguro de que quieres eliminar a este jugador?')">
-                                        <img src="./img/eliminar.png">
-                                    </button>
-                                </form>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-
-                    <?php else: ?>
-                        <p>No hay jugadores añadidos aún.</p>
-                    <?php endif; ?>
-                </div>
-
+            <section class="button-container">
                 <form action="" method="POST" class="form-players">
-                    <button type="submit" name="resetPlayers" id="button-resetPlayers">
+                    <button type="submit" name="resetPlayers" class="submit-button">
                         Limpiar
                     </button>
                 </form>
 
                 <form action="match.php" method="POST" class="form-players">
-                    <button type="submit" name="matchPlayers" id="button-matchPlayers">
+                    <button type="submit" name="matchPlayers" class="submit-button">
                         Enfrentar
                     </button>
                 </form>
             </section>
-        </main>
+        </section>
+    </main>
 
-        <footer class="footer">
-            <p>&copy; <?=date('Y')?> | 
-                <a href="https://github.com/Alextc35/chess-tournament/blob/main/LICENSE" class="license" target="_blank">
-                    Licencia MIT
-                </a>
-            </p>
+    <footer class="footer">
+        <p>&copy; <?=date('Y')?> |
+            <a href="https://github.com/Alextc35/chess-tournament/blob/main/LICENSE"
+               class="license"
+               target="_blank">
+                Licencia MIT
+            </a>
+        </p>
 
-            <p>
-                <a href="https://github.com/Alextc35/chess-tournament" class="version" target="_blank">
-                    v. 0.1.0
-                </a>
-            </p>
-        </footer>
+        <p>
+            <a href="https://github.com/Alextc35/chess-tournament"
+               class="version"
+               target="_blank">
+                v. 0.1.0
+            </a>
+        </p>
+    </footer>
 </body>
 </html>

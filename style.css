@@ -1,36 +1,68 @@
 body {
-    background-color: #333;
-    color: #F4F4F4;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
-    margin: 0;
-    padding: 0;
+    background-color: #333; /* check */
+    color: #F4F4F4; /* check */
+    font-family: 'Courier New', Courier, monospace; /* check */
+    font-size: 18px; /* check */
+    margin: 0; /* check */
+    padding: 0; /* check */
 }
 
+/* Contenedor principal */
 .app {
-    background-color: initial;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    gap: 20px;
+    width: 75%; /* check */
+    display: flex; /* check */
+    flex-direction: column; /* check */
+    align-items: center; /* check */
+    margin: 20px auto; /* check */
+    gap: 20px; /* check */
 }
 
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Botones de la página */
+.button-container {
+    display: flex; /* check */
+    margin: auto; /* check */
+}
+
+.button-container form {
+    margin: 5px; /* check */
+}
+
+.submit-button {
+    background: #333; /* check */
+    cursor: pointer; /* check */
+    border: none; /* check */
+    padding: 16px 32px; /* check */
+    color: #FFF; /* check */
+    font-size: 24px; /* check */
+    font-weight: bold; /* check */
+    border-radius: 12px; /* check */
+    transition: all 0.3s ease; /* check */
+}
+
+.submit-button:hover {
+    transform: scale(1.05); /* check */
+    background: black; /* check */
+    color: #F4F4F4; /* check */
+}
+
+/* Cabecera */
+.main-header {
+    display: flex; /* check */
+    flex-direction: column; /* check */
+    align-items: center; /* check */
+    margin: 20px;
 }
 
 .header-title {
-    font-size: 36px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 36px; /* check */
+    font-weight: 700; /* check */
+    text-transform: uppercase; /* check */
+    letter-spacing: 2px; /* check */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* check */
+}
+
+.header-author {
+
 }
 
 .linkedin {
@@ -72,24 +104,6 @@ body {
     font-size: 20px;
     width: 75%;
     margin: 5px;
-}
-
-#button-addPlayer {
-    background: #333;
-    cursor: pointer;
-    border: none;
-    padding: 16px 32px;
-    color: #FFF;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-#button-addPlayer:hover {
-    transform: scale(1.05);
-    background: black;
-    color: #F4F4F4;
 }
 
 .view-players {
@@ -144,52 +158,6 @@ body {
     text-align: center;
     justify-content: center;
     width: 100%;
-}
-
-#button-matchPlayers {
-    background: #333;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    width: 10%;
-    padding: 16px 32px;
-    margin: 10px;
-    color: #FFF;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-#button-matchPlayers:hover {
-    transform: scale(1.05);
-    background: black;
-    color: #F4F4F4;
-}
-
-#button-resetPlayers {
-    background: #333;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    width: 10%;
-    padding: 16px 32px;
-    margin: 10px;
-    color: #FFF;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-#button-resetPlayers:hover {
-    transform: scale(1.05);
-    background: black;
-    color: #F4F4F4;
 }
 
 .footer {
