@@ -28,34 +28,21 @@ for ($i = 0; $i < count($players); $i += 2) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="aplicacion">
-        <header class="header">
-            <h1 class="header-title">Enfrentamientos del Torneo</h1>
-        </header>
-        <section class="match-section">
+    <main class="app">
+        <?php include('header.php'); ?>
+        <section class="view-players column-content">
             <h2>Emparejamientos Generados</h2>
-
-            <hr class="view-separator">
-            
-            <ul class="match-list">
+            <hr>
+            <ul class="no-margin-no-padding">
                 <?php foreach ($matchups as $match): ?>
-                    <li class="match-item">
+                    <li class="list-player center-content">
                         <?= htmlspecialchars($match[0]) ?> vs <?= htmlspecialchars($match[1]) ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
         </section>
-
-        <footer class="footer">
-            <p>&copy; <?= date('Y') ?> |
-                <a href="https://github.com/Alextc35/chess-tournament/blob/main/LICENSE" class="license" target="_blank">
-                    Licencia MIT
-                </a>
-            </p>
-            <p>
-                <a href="index.php" class="back-link">Volver</a>
-            </p>
-        </footer>
-    </div>
+        <p class="center-content"><a href="index.php" class="back-link">Volver</a></p>
+        <?php include('footer.php'); ?>
+    </main>
 </body>
 </html>

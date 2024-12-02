@@ -1,6 +1,5 @@
 <?php
 include 'players.php';
-$version = "0.6.2";
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +14,7 @@ $version = "0.6.2";
     <meta name="description" content="Descubre nuestra aplicación web para generar emparejamientos de manera rápida y sencilla. Ideal para torneos, sorteos, actividades grupales y más. ¡Organiza y conecta a las personas fácilmente!">
 </head>
 <body class="no-margin-no-padding">
-    <header class="main-header">
-        <h1 class="header-title">Forjador de Partidas</h1>
-        <p>Aplicación creada por <a href="https://www.linkedin.com/in/alejandrotellezcorona/"  class="link-linkedin"  target="_blank">@alextc35</a></p>
-    </header>
+    <?php include('header.php'); ?>
 
     <main class="app column-content">
         <section class="add-players">
@@ -74,9 +70,6 @@ $version = "0.6.2";
         </section>
     </main>
 
-    <footer class="column-content">
-        <p>&copy; <?=date('Y')?> | <a href="https://github.com/Alextc35/match-forge/blob/main/LICENSE" class="footer-license" target="_blank">Licencia MIT</a></p>
-        <p><a href="https://github.com/Alextc35/match-forge" class="footer-version" target="_blank">v. <?= $version ?></a></p>
-    </footer>
+    <?php include('footer.php'); ?>
 </body>
 </html>
