@@ -35,8 +35,9 @@ for ($i = 0; $i < count($players); $i += 2) {
             <hr>
             <ul class="no-margin-no-padding">
                 <?php foreach ($matchups as $match): ?>
-                    <li class="list-player center-content">
-                        <?= htmlspecialchars($match[0]) ?> vs <?= htmlspecialchars($match[1]) ?>
+                    <li class="list-player">
+                        <span class="column-content"><?= htmlspecialchars($match[0]) ?><span>vs</span><?= htmlspecialchars($match[1]) ?></span>
+                        <hr>
                     </li>
                 <?php endforeach; ?>
             </ul>
