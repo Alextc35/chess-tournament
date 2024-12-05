@@ -15,7 +15,6 @@ include 'players.php';
 </head>
 <body class="no-margin-no-padding">
     <?php include('header.php'); ?>
-
     <main class="app column-content">
         <section class="add-players">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -59,17 +58,17 @@ include 'players.php';
             </section>
 
             <section class="button-container">
+                <form action="app-match.php" method="POST">
+                    <button type="submit" name="matchPlayers" class="submit-button match-button">Enfrentar</button>
+                </form>
+
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                     <button type="submit" name="resetPlayers" class="submit-button reset-button">Limpiar</button>
                 </form>
 
-                <form action="match.php" method="POST">
-                    <button type="submit" name="matchPlayers" class="submit-button match-button">Enfrentar</button>
-                </form>
             </section>
         </section>
     </main>
-
     <?php include('footer.php'); ?>
 </body>
 </html>
